@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/yen-yjhyung/gowebapplication/pkg/config"
-	"github.com/yen-yjhyung/gowebapplication/pkg/models"
-	"github.com/yen-yjhyung/gowebapplication/pkg/render"
+	"github.com/yen-yjhyung/bookings/pkg/config"
+	"github.com/yen-yjhyung/bookings/pkg/models"
+	"github.com/yen-yjhyung/bookings/pkg/render"
 )
 
 // Repo the repository used by the handlers

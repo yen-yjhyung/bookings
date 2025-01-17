@@ -1,4 +1,4 @@
-module github.com/yen-yjhyung/gowebapplication
+module github.com/yen-yjhyung/bookings
 
 go 1.22.0
 

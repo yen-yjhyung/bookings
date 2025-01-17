@@ -8,12 +8,12 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"github.com/yen-yjhyung/gowebapplication/pkg/config"
-	"github.com/yen-yjhyung/gowebapplication/pkg/models"
+	"github.com/yen-yjhyung/bookings/pkg/config"
+	"github.com/yen-yjhyung/bookings/pkg/models"
 )
 
 func RenderTemplate(w http.ResponseWriter, html string) {
-	parsedTemplate, _ := template.ParseFiles("./hello-world/templates/"+html, "./hello-world/templates/base.layout.html")
+	parsedTemplate, _ := template.ParseFiles("./templates/"+html, "./templates/base.layout.html")
 	err := parsedTemplate.Execute(w, nil)
 	if err != nil {
 		fmt.Println("error parsing template:", err)
@@ -54,7 +54,7 @@ func CreateTemplateCatche() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
 	// get all of the files named *.page.html from ./hello-world/templates
-	pages, err := filepath.Glob("./hello-world/templates/*.html")
+	pages, err := filepath.Glob("./templates/*.html")
 	if err != nil {
 		return myCache, err
 	}
@@ -67,13 +67,13 @@ func CreateTemplateCatche() (map[string]*template.Template, error) {
 			return myCache, err
 		}
 
-		matches, err := filepath.Glob("./hello-world/templates/*.layout.html")
+		matches, err := filepath.Glob("./templates/*.layout.html")
 		if err != nil {
 			return myCache, err
 		}
 
 		if len(matches) > 0 {
-			ts, err = ts.ParseGlob("./hello-world/templates/*.layout.html")
+			ts, err = ts.ParseGlob("./templates/*.layout.html")
 			if err != nil {
 				return myCache, nil
 			}
